@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <style>
+        #table-div{
+           
+          display: flex;
+          justify-content: center;
+          margin-top: 50px;
+        }
+    </style>
+</head>
+<body style="text-align: center;">
+
+    <nav class="navbar navbar-expand-lg " style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">Introduction</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="project.html">Project</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="form.html">Feedback form</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+    <div id="table-div">
+        <table border="1|1" class="table table-bordered border-dark">
+            <thead> 
+                <tr>
+                    <th >ID</th> 
+                    <th >City</th>
+                 </tr> 
+                </thead>
+                <tbody id="table">
+                    
+                </tbody>
+        </table>
+       
+       
+    </div>
+    <button id="sort" onclick="sortFun()">Sort Table</button>
+
+    <script>
+        
+
+        const city = [
+  {id: 1, name: 'Mumbai'},
+  {id: 2, name: 'Pune'},
+  {id: 3, name: 'Banglore'},
+  {id: 4, name: 'Delhi'},
+  {id: 5, name: 'Ahamdabad'},
+  {id: 6, name: 'Goa'}
+]
+
+
+
+var html = "<tr>";
+for (var i = 0; i < city.length; i++) {
+    
+    
+    html+="<td>"+city[i].id+"</td>";
+    html+="<td>"+city[i].name+"</td>";
+    
+    
+    html+="</tr>";
+
+}
+
+
+document.getElementById('table').innerHTML= html
+
+
+function sortFun(){
+    city.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+
+    var html = "<tr>";
+for (var i = 0; i < city.length; i++) {
+    
+    
+    html+="<td>"+city[i].id+"</td>";
+    html+="<td>"+city[i].name+"</td>";
+    
+    
+    html+="</tr>";
+
+}
+
+
+document.getElementById('table').innerHTML= html
+}
+
+
+
+    </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
